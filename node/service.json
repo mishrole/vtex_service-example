@@ -11,7 +11,7 @@
       "public": true
     },
     "universities": {
-      "path": "/universities",
+      "path": "/v0/universities/:country",
       "public": true
     }
   }

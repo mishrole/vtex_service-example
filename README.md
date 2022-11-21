@@ -22,14 +22,14 @@ To create new endpoints, you need to add the name inside **routes** object as a 
 
 ```json
   "universities": {
-    "path": "/universities",
-    "public": true,
+    "path": "/v0/universities/:country",
+    "public": true
   }
 ```
 
 ## node/middlewares/getUniversities.ts
 
-This function is responsible for making the request to the external API by calling the method **getUniversitiesByCountry** method (**clients/universities.ts**) and returning a response to the client.
+This function is responsible for making the request to the external API by calling the **getUniversitiesByCountry** method (**clients/universities.ts**) and returning a response to the client.
 
 ```typescript
 export async function getUniversities(ctx: Context, next: () => Promise<any>) {
