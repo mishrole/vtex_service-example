@@ -24,6 +24,13 @@
       }
     },
     {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "universities.hipolabs.com",
+        "path": "/*"
+      }
+    },
+    {
       "name": "colossus-fire-event"
     },
     {
