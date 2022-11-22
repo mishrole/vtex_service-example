@@ -146,3 +146,58 @@ export default new Service({
   },
 })
 ```
+
+<br />
+
+---
+<br />
+
+> Goal 🚀
+>
+> Get access to environment variables and use them in the service.
+
+## manifest.json
+
+Add settingsSchema to **manifest.json** to access the configuration programmatically and use environment variables.
+
+```json
+ "settingsSchema": {
+    "title": "Test",
+    "type": "object",
+    "properties": {
+      "universities": {
+        "title": "Universities",
+        "description": "Universities service endpoint",
+        "type": "string"
+      },
+      "country": {
+        "title": "Country",
+        "description": "Country name",
+        "type": "string"
+      }
+    }
+  },
+```
+
+Set the variables on the Settings section of the service in the VTEX Admin. Search for the service in the search bar using the title defined in **manifest.json**.
+
+```bash
+  vtex browse admin
+```
+
+![image](assets/admin-apps.png)
+![image](assets/admin-config.png)
+
+And access the variables whenever you need them. For example, in the **getUniversities** *middleware*.
+
+```typescript
+const APP_ID = process.env.VTEX_APP_ID ? process.env.VTEX_APP_ID : ''
+  const {
+    universities: universitiesSchema,
+    country: countrySchema,
+  } = await ctx.clients.apps.getAppSettings(APP_ID)
+
+  console.info('Received universitiesSchema:', universitiesSchema)
+  console.info('Received countrySchema:', countrySchema)
+```
+![image](assets/terminal-variable.png)

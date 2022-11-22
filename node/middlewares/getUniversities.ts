@@ -11,6 +11,15 @@ export async function getUniversities(ctx: Context, next: () => Promise<any>) {
 
   console.info('Received country:', country)
 
+  const APP_ID = process.env.VTEX_APP_ID ? process.env.VTEX_APP_ID : ''
+  const {
+    universities: universitiesSchema,
+    country: countrySchema,
+  } = await ctx.clients.apps.getAppSettings(APP_ID)
+
+  console.info('Received universitiesSchema:', universitiesSchema)
+  console.info('Received countrySchema:', countrySchema)
+
   const universitiesResponse = await ctx.clients.universities.getUniversitiesByCountry(
     country
   )

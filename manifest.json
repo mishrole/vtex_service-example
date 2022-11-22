@@ -37,5 +37,21 @@
       "name": "colossus-write-logs"
     }
   ],
+  "settingsSchema": {
+    "title": "Test",
+    "type": "object",
+    "properties": {
+      "universities": {
+        "title": "Universities",
+        "description": "Universities service endpoint",
+        "type": "string"
+      },
+      "country": {
+        "title": "Country",
+        "description": "Country name",
+        "type": "string"
+      }
+    }
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
