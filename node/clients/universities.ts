@@ -8,7 +8,7 @@ export default class Universities extends ExternalClient {
 
   public async getUniversitiesByCountry(
     country: string | string[]
-  ): Promise<IOResponse<string>> {
+  ): Promise<IOResponse<any>> {
     return this.http.getRaw(`search?country=${country}`)
   }
 }
